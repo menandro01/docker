@@ -1,0 +1,33 @@
+[Mon Feb 21 15:23:24.744737 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Mon Feb 21 15:23:24.744833 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Feb 22 12:27:16.791712 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Tue Feb 22 12:27:16.791773 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Feb 22 12:51:46.074501 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Tue Feb 22 12:51:46.074531 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Feb 22 12:54:10.586358 2022] [mpm_prefork:notice] [pid 8] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Tue Feb 22 12:54:10.586392 2022] [core:notice] [pid 8] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Feb 22 13:19:42.501095 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Tue Feb 22 13:19:42.501128 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Feb 22 13:41:13.723597 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.3.33-1+ubuntu20.04.1+deb.sury.org+1 OpenSSL/1.1.1f configured -- resuming normal operations
+[Tue Feb 22 13:41:13.723631 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Feb 22 13:42:41.326687 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Tue Feb 22 13:42:41.326721 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Feb 22 13:57:10.700001 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Tue Feb 22 13:57:10.700031 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Feb 22 14:26:54.673749 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Tue Feb 22 14:26:54.673780 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Wed Feb 23 05:52:44.014540 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Wed Feb 23 05:52:44.014573 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Wed Feb 23 06:03:43.668539 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Wed Feb 23 06:03:43.668575 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Wed Feb 23 07:30:38.705852 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Wed Feb 23 07:30:38.705896 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Wed Feb 23 07:33:21.208397 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Wed Feb 23 07:33:21.208432 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Wed Feb 23 07:44:22.881767 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Wed Feb 23 07:44:22.881800 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Wed Feb 23 07:56:02.147436 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Wed Feb 23 07:56:02.147476 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
+postdrop: warning: unable to look up public/pickup: No such file or directory
+[Wed Feb 23 09:29:10.970357 2022] [mpm_prefork:notice] [pid 7] AH00163: Apache/2.4.41 (Ubuntu) PHP/7.4.28 OpenSSL/1.1.1f configured -- resuming normal operations
+[Wed Feb 23 09:29:10.970425 2022] [core:notice] [pid 7] AH00094: Command line: 'apache2 -D FOREGROUND'
