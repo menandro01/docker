@@ -39,38 +39,38 @@ services:
     #                 - <add local vhost doamin name here>
 
 ### MAGENTO APP CuctomConcepts ################################################
-    web:
-        build: ./docker/web
-        container_name: ${PROJECT_PREFIX}_docker_web
-        ports:
-            - "80:80"
-            - "443:443"
-        volumes:
-            - sock:/sock
-            - "./src:/var/www/html"
-            - "./modules:/var/www/modules"
-            - "./docker/web/apache2:/etc/apache2/sites-enabled/"
-            - "./docker/web/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
-            - "./docker/web/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini"
-            - "./docker/web/postfix/master.cf:/etc/postfix/master.cf"
-            - "./docker/web/postfix/main.cf:/etc/postfix/main.cf"
-            - "./docker/web/logs:/var/log"
-            - "./docker/web/rc.local:/etc/rc.local"
-            - "./docker/web/apache2/gocustomized-m2.local.crt:/etc/apache2/gocustomized-m2.local.crt"
-            - "./docker/web/apache2/gocustomized-m2.local.key:/etc/apache2/gocustomized-m2.local.key"
-        environment:
-            PHP_EXTENSION_XDEBUG: ${PHP_EXTENSION_XDEBUG}
-            APACHE_EXTENSION_DAV: 1
-            APACHE_EXTENSION_SSL: 1
-        tty: true
-#        links:
-#            - redis
-        # command: bash -c "sudo service rsyslog restart && sudo service postfix restart"
-        depends_on:
-            - db
-#            - redis
-        networks:
-            - magento2
+#     web:
+#         build: ./docker/web
+#         container_name: ${PROJECT_PREFIX}_docker_web
+#         ports:
+#             - "80:80"
+#             - "443:443"
+#         volumes:
+#             - sock:/sock
+#             - "./src:/var/www/html"
+#             - "./modules:/var/www/modules"
+#             - "./docker/web/apache2:/etc/apache2/sites-enabled/"
+#             - "./docker/web/conf.d/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini"
+#             - "./docker/web/conf.d/error_reporting.ini:/usr/local/etc/php/conf.d/error_reporting.ini"
+#             - "./docker/web/postfix/master.cf:/etc/postfix/master.cf"
+#             - "./docker/web/postfix/main.cf:/etc/postfix/main.cf"
+#             - "./docker/web/logs:/var/log"
+#             - "./docker/web/rc.local:/etc/rc.local"
+#             - "./docker/web/apache2/gocustomized-m2.local.crt:/etc/apache2/gocustomized-m2.local.crt"
+#             - "./docker/web/apache2/gocustomized-m2.local.key:/etc/apache2/gocustomized-m2.local.key"
+#         environment:
+#             PHP_EXTENSION_XDEBUG: ${PHP_EXTENSION_XDEBUG}
+#             APACHE_EXTENSION_DAV: 1
+#             APACHE_EXTENSION_SSL: 1
+#         tty: true
+# #        links:
+# #            - redis
+#         # command: bash -c "sudo service rsyslog restart && sudo service postfix restart"
+#         depends_on:
+#             - db
+# #            - redis
+#         networks:
+#             - magento2
 
 ### MySQL ################################################
     db:
@@ -208,7 +208,7 @@ volumes:
         driver_opts:
             type: nfs
             o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
-            device: ":/home/mdelosreyes/Documents/Docker/Henry/docker-setup/src/Projects/CustomConcepts/webshop_M2"
+            device: ":/home/mdelosreyes/Documents/Docker/docker/src/Projects/TinSoldier/Magento2"
     redis: {}
     rabbitmq_data:
         driver: local
