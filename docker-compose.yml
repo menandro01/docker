@@ -73,56 +73,58 @@ services:
 #             - magento2
 
 ### MySQL ################################################
-    db:
-        build:
-            context: ./docker/mysql
-            args:
-                - MYSQL_VERSION=${MYSQL_VERSION}
-        container_name: ${PROJECT_PREFIX}_docker_db
-        env_file:
-            - ".env"
-        environment:
-            - MYSQL_DATABASE=${MYSQL_DATABASE}
-            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-            - MYSQL_USER=${MYSQL_USER}
-            - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-        volumes:
-        - ${DATA_PATH_HOST}/mysql:/var/lib/mysql
-        - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
-        ports:
-            - "5506:3306"
-        networks:
-            - magento2
-
-### phpMyAdmin ###########################################
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        container_name: ${PROJECT_PREFIX}_docker_phpmyadmin
-        env_file:
-            - ".env"
-        environment:
-            - PMA_ARBITRARY=1
-            - MYSQL_USER=root
-            - MYSQL_PASSWORD=root ${MYSQL_ROOT_PASSWORD}
-            - MYSQL_ROOT_PASSWORD=root ${MYSQL_ROOT_PASSWORD}
-        ports:
-            - "8083:80"
-        depends_on:
-            - db
-        networks:
-            - magento2
-
-### Redis ################################################ 
-    # redis:
-    #     image: redis:5.0.5
-    #     container_name: ${PROJECT_PREFIX}_docker_redis
+    # db:
+    #     build:
+    #         context: ./docker/mysql
+    #         args:
+    #             - MYSQL_VERSION=${MYSQL_VERSION}
+    #     container_name: ${PROJECT_PREFIX}_docker_db
     #     env_file:
     #         - ".env"
+    #     environment:
+    #         - MYSQL_DATABASE=${MYSQL_DATABASE}
+    #         - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    #         - MYSQL_USER=${MYSQL_USER}
+    #         - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     #     volumes:
-    #         - redis:/data
-    #     tty: true
+    #     - ${DATA_PATH_HOST}/mysql:/var/lib/mysql
+    #     - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
+    #     ports:
+    #         - "5506:3306"
     #     networks:
     #         - magento2
+
+### phpMyAdmin ###########################################
+    # phpmyadmin:
+    #     image: phpmyadmin/phpmyadmin
+    #     container_name: ${PROJECT_PREFIX}_docker_phpmyadmin
+    #     env_file:
+    #         - ".env"
+    #     environment:
+    #         - PMA_ARBITRARY=1
+    #         - MYSQL_USER=root
+    #         - MYSQL_PASSWORD=root ${MYSQL_ROOT_PASSWORD}
+    #         - MYSQL_ROOT_PASSWORD=root ${MYSQL_ROOT_PASSWORD}
+    #     ports:
+    #         - "8083:80"
+    #     depends_on:
+    #         - db
+    #     networks:
+    #         - magento2
+
+## Redis ################################################ 
+    redis:
+        image: redis:5.0.5
+        container_name: ${PROJECT_PREFIX}_docker_redis
+        env_file:
+            - ".env"
+        volumes:
+            - redis:/data
+        ports:
+            - "6379:6379"
+        tty: true
+        networks:
+            - magento2
 
 ### RabbitMQ ################################################
     # rabbitmq:
@@ -155,18 +157,18 @@ services:
             - magento2
 
 ### Portainer ################################################
-    portainer:
-        image: portainer/portainer:latest
-        container_name: ${PROJECT_PREFIX}_docker_portainer
-        volumes:
-            - ${DATA_PATH_HOST}/portainer_data:/data
-            - /var/run/docker.sock:/var/run/docker.sock
-        extra_hosts:
-            - "dockerhost:${DOCKER_HOST_IP}"
-        ports:
-            - 9010:9000
-        networks:
-            - magento2
+    # portainer:
+    #     image: portainer/portainer:latest
+    #     container_name: ${PROJECT_PREFIX}_docker_portainer
+    #     volumes:
+    #         - ${DATA_PATH_HOST}/portainer_data:/data
+    #         - /var/run/docker.sock:/var/run/docker.sock
+    #     extra_hosts:
+    #         - "dockerhost:${DOCKER_HOST_IP}"
+    #     ports:
+    #         - 9010:9000
+    #     networks:
+    #         - magento2
 
 ### Elasticsearch ###########################################
     elasticsearch:
@@ -184,7 +186,7 @@ services:
         volumes:
             - esdata01:/usr/share/elasticsearch/data
         ports:
-            - 9201:9200
+            - 9200:9200
         networks:
             - magento2
 
@@ -203,12 +205,12 @@ services:
     #         - backend
 
 volumes:
-    nfsmount:
-        driver: local
-        driver_opts:
-            type: nfs
-            o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
-            device: ":/home/mdelosreyes/Documents/Docker/docker/src/Projects/TinSoldier/Magento2"
+    # nfsmount:
+    #     driver: local
+    #     driver_opts:
+    #         type: nfs
+    #         o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3
+    #         device: ":/home/mdelosreyes/Documents/Docker/docker/src/Projects/TinSoldier/Magento2"
     redis: {}
     rabbitmq_data:
         driver: local
