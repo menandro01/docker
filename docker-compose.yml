@@ -127,24 +127,24 @@ services:
             - magento2
 
 ### RabbitMQ ################################################
-    # rabbitmq:
-    #     image: bitnami/rabbitmq:latest
-    #     container_name: ${PROJECT_PREFIX}_docker_rabbitmq
-    #     labels:
-    #         kompose.service.type: nodeport
-    #     ports:
-    #         - '4369:4369'
-    #         - '5672:5672'
-    #         - '25672:25672'
-    #         - '15672:15672'
-    #     volumes:
-    #         - 'rabbitmq_data:/bitnami'
-    #     environment:
-    #         - RABBITMQ_USERNAME=magento2
-    #         - RABBITMQ_PASSWORD=magento2
-    #         - RABBITMQ_VHOST=magento2
-    #     networks:
-    #     - magento2
+    rabbitmq:
+        image: rabbitmq:4.2.3-management
+        container_name: ${PROJECT_PREFIX}_docker_rabbitmq
+        labels:
+            kompose.service.type: nodeport
+        ports:
+            # - '4369:4369'
+            - '5672:5672'
+            # - '25672:25672'
+            - '15672:15672'
+        volumes:
+            - rabbitmq_data:/var/lib/rabbitmq
+        environment:
+            - RABBITMQ_DEFAULT_USER=magento2
+            - RABBITMQ_DEFAULT_PASS=magento2
+            - RABBITMQ_DEFAULT_VHOST=magento2
+        networks:
+        - magento2
 
 ### Mailhog ################################################
     mailhog:
@@ -190,6 +190,50 @@ services:
         networks:
             - magento2
 
+# ## OpenSearch ################################################
+#     opensearch:
+#         image: opensearchproject/opensearch:1.2.4
+#         container_name: ${PROJECT_PREFIX}_docker_opensearch
+#         environment:
+#             - cluster.name=my-opensearch-cluster
+#             - node.name=opensearch-node
+#             - discovery.type=single-node
+#             - plugins.security.disabled=true
+#         ulimits:
+#             memlock:
+#                 soft: -1
+#                 hard: -1
+#         volumes:
+#             - opensearch-data:/usr/share/opensearch/data
+#         ports:
+#             - 9201:9200
+#             - 9600:9600
+#         networks:
+#             - magento2
+
+## OpenSearch Latest ################################################
+    opensearch:
+        image: opensearchproject/opensearch:2.14.0
+        container_name: ${PROJECT_PREFIX}_docker_opensearch
+        environment:
+            - cluster.name=my-opensearch-cluster
+            - node.name=opensearch-node
+            - discovery.type=single-node
+            - plugins.security.disabled=true
+            - OPENSEARCH_INITIAL_ADMIN_PASSWORD=Str0ng!P@ssw0rd2024
+            - OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+        volumes:
+            - opensearch-data:/usr/share/opensearch/data
+        ports:
+            - 9201:9200
+            - 9600:9600
+        networks:
+            - magento2
+
 ### SonarQube ################################################
     # sonarqube:
     #     build:
@@ -219,7 +263,8 @@ volumes:
     db-data:
     esdata01:
         driver: local
-
+    opensearch-data:
+        driver: local
 networks:
     magento2:
         driver: bridge
